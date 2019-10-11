@@ -6,6 +6,7 @@ class WindowCreation
 {
 public:
 
+
 	WindowCreation(glm::vec2 windowsize);
 	GLFWwindow* window;
 

@@ -13,6 +13,10 @@ class Camera
 {
 public:
 
+	glm::vec3 right = glm::vec3(0);
+	glm::vec3 up = glm::vec3(0);
+	glm::vec3 forward = glm::vec3(0);
+
 	ctransform transform;
 
 	Camera(glm::mat4 c_proj)
@@ -23,6 +27,7 @@ public:
 	glm::mat4 view = glm::mat4(1.0f);
 
 	void Bind(Shader& shader);
-	void Update(Shader& shader);
+	glm::mat4 transform_to_mat4();
+	void CalculateMatrices(Shader& shader);
 
 };
