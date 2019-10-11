@@ -15,10 +15,14 @@ struct Transform
 };
 
 
-struct Vertex {
-	glm::vec2 Position;
+class Vertex {
+private:
+	glm::vec3 Position;
 	glm::vec3 Color;
 	glm::vec2 texCoord;
+public:
+	Vertex(glm::vec3 p, glm::vec3 c, glm::vec2 t)
+		: Position(p), Color(c), texCoord(t) {}
 };
 class Mesh {
 public:

@@ -54,5 +54,6 @@ WindowCreation::WindowCreation(const glm::vec2 windowsize)
 		std::cout << "GLEW WAS NOT INITIALIZED PROPERLY" << std::endl;
 	}
 
+	glEnable(GL_DEPTH_TEST);
 	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 }
