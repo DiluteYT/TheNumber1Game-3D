@@ -47,7 +47,7 @@ WindowCreation::WindowCreation(const glm::vec2 windowsize)
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
 
-	glfwSwapInterval(1);
+	glfwSwapInterval(1); // 0 = unlimited, 1 = vsync
 	glewExperimental = GL_TRUE;
 	if (glewInit() != GLEW_OK)
 	{

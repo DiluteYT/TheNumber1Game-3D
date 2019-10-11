@@ -58,5 +58,8 @@ glm::mat4 Mesh::to_mat4()
 	m = glm::rotate(m, transform.rotation.y, glm::vec3(0, 1, 0));
 	m = glm::rotate(m, transform.rotation.x, glm::vec3(1, 0, 0));
 	m = glm::scale(m, transform.scale);
+
 	return m;
+
+
 }

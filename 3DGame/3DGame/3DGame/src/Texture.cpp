@@ -1,3 +1,4 @@
+#include "glew.h"
 #include "Texture.h"
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -17,8 +18,8 @@ Texture::Texture(const char* filename)
 	// set the texture wrapping/filtering options (on the currently bound texture object)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	// load and generate the texture
 	int width, height, nrChannels;
@@ -34,6 +35,8 @@ Texture::Texture(const char* filename)
 	}
 	else
 		std::cout << "Failed to load texture: " << Filename << "\n";
+
+	glGenerateMipmap(GL_TEXTURE_2D);
 
 	// Cleanup
 	stbi_image_free(data);

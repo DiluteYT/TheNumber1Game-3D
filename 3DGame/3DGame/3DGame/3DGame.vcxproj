@@ -154,6 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Time.h" />
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\Renderer2D.h" />
@@ -407,6 +408,7 @@
     <ClInclude Include="src\WindowCreation.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Time.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Main.cpp" />

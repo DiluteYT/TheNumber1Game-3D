@@ -28,8 +28,6 @@ void Camera::CalculateMatrices(Shader& shader) {
 	up = glm::vec3(transform[1]);
 	forward = -glm::vec3(transform[2]);
 
-	std::cout << forward.x << ", " << forward.y << ", " << forward.z << std::endl;
-
 	view = glm::inverse(transform);
 	shader.SetUniformMatrix4fv("view", view);
 }
