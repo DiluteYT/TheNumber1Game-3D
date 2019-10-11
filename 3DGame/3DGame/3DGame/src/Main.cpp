@@ -5,6 +5,8 @@
 #include "Shapes.h"
 #include "Renderer2D.h"
 
+#include <chrono>
+
 int main()
 {
 
@@ -22,15 +24,13 @@ int main()
 
 	std::vector<Mesh> meshes;
 
-	meshes.emplace_back(Spike_3D(), "res/textures/th.png", shader);
 	meshes.emplace_back(Cube(), "res/textures/th.png", shader);
 
-	meshes[0].transform.position = glm::vec3(0, 0, 0);
-	meshes[1].transform.position = glm::vec3(0, -1, 0);
+	meshes[0].transform.scale.x += 1000;
 
 	//-------------------------------------------------------//
 
-	float movementSpeed = 1;
+	float movementSpeed = 0.1f;
 
 	double tempx, tempy;
 	glm::vec2 m = glm::vec2(0);
@@ -40,27 +40,25 @@ int main()
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		std::cout << m.x << ", " << m.y << std::endl;
-
 		camera.transform.rotation.x += m.x;
 		camera.transform.rotation.y += m.y;
 
 		glfwGetCursorPos(wc.window, &tempx, &tempy);
 
 		if(Input::KeyPressed(83, wc.window))
-			camera.transform.position.z += camera.forward.z * movementSpeed;
-		else if(Input::KeyPressed(87, wc.window))
-			camera.transform.position.z -= camera.forward.z * movementSpeed;
+			camera.transform.position -= camera.forward * movementSpeed;
+		else if (Input::KeyPressed(87, wc.window))
+			camera.transform.position += camera.forward * movementSpeed;
 
-		if (Input::KeyPressed(68, wc.window))
-			camera.transform.position.x += camera.right.x * movementSpeed;
-		else if (Input::KeyPressed(65, wc.window))
-			camera.transform.position.x -= camera.right.x * movementSpeed;
+		if (Input::KeyPressed(65, wc.window))
+			camera.transform.position -= camera.right * movementSpeed;
+		else if (Input::KeyPressed(68, wc.window))
+			camera.transform.position += camera.right * movementSpeed;
 
 		if (Input::KeyPressed(32, wc.window))
-			camera.transform.position.y += camera.up.y * movementSpeed;
+			camera.transform.position.y += movementSpeed;
 		else if (Input::KeyPressed(340, wc.window))
-			camera.transform.position.y -= camera.up.y * movementSpeed;
+			camera.transform.position.y -= movementSpeed;
 
 
 		for (size_t i = 0; i < meshes.size(); i++)
