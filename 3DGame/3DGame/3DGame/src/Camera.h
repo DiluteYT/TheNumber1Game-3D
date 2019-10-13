@@ -21,12 +21,12 @@ public:
 
 	Camera(glm::mat4 c_proj)
 		: projection(c_proj) { 
-	
+		
 	}
 	glm::mat4 projection;
 	glm::mat4 view = glm::mat4(1.0f);
 
-	void Bind(Shader& shader);
+	void BindProjection(Shader& shader);
 	glm::mat4 transform_to_mat4();
 	void CalculateMatrices(Shader& shader);
 

@@ -12,6 +12,8 @@ struct Transform
 	glm::vec3 rotation = glm::vec3(0.0f, 0.0f, 0.0f);
 	glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f);
 	glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);
+
+	glm::mat4 to_mat4();
 };
 
 
@@ -24,32 +26,34 @@ public:
 	Vertex(glm::vec3 p, glm::vec3 c, glm::vec2 t)
 		: Position(p), Color(c), texCoord(t) {}
 };
+
 class Mesh {
 public:
 	std::vector<Vertex> Vertices;
-	unsigned int VAO;
-
-	Transform transform;
-
-	bool renderMe = true;
-
-	Texture Texture;
-
-	Shader shader;
+	Texture Mesh_Texture;
+	unsigned int mesh_VAO;
 
 	// Constructor
-	Mesh(const std::vector<Vertex> vertices, const char* texture, const Shader Shader);
-
-	// Draw the mesh
-	void Draw();
+	Mesh(const std::vector<Vertex> vertices, const char* texture);
 
 private:
-
-	unsigned int VBO;
+	unsigned int mesh_VBO;
 
 	void setupMesh();
 
+};
 
-	glm::mat4 to_mat4();
+
+class Object
+{
+public:
+	void Draw(Shader& shader);
+	Transform transform;
+	bool renderMe = true;
+
+	Object(Mesh* mesh);
+
+private:
+	Mesh* meshP{ nullptr };
 
 };

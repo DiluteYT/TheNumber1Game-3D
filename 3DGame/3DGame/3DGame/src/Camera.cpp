@@ -2,9 +2,8 @@
 
 #include <iostream>
 
-void Camera::Bind(Shader& shader) 
+void Camera::BindProjection(Shader& shader) 
 {
-	shader.SetUniformMatrix4fv("view", view);
 	shader.SetUniformMatrix4fv("projection", projection);
 }
 
