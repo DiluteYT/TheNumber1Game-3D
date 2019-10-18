@@ -11,6 +11,7 @@ struct ctransform {
 
 class Camera
 {
+
 public:
 
 	glm::vec3 right = glm::vec3(0);
@@ -19,10 +20,12 @@ public:
 
 	ctransform transform;
 
-	Camera(glm::mat4 c_proj)
-		: projection(c_proj) { 
-		
+	Camera(glm::mat4 c_proj, Shader& shader)
+		: projection(c_proj)
+	{ 
+		shader.SetUniformMatrix4fv("projection", projection);
 	}
+
 	glm::mat4 projection;
 	glm::mat4 view = glm::mat4(1.0f);
 

@@ -7,6 +7,8 @@
 #include <iostream>
 #include <vector>
 
+class Object;
+
 struct Transform
 {
 	glm::vec3 rotation = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -30,11 +32,17 @@ public:
 class Mesh {
 public:
 	std::vector<Vertex> Vertices;
+	std::vector<Object> Objects;
+
 	Texture Mesh_Texture;
 	unsigned int mesh_VAO;
 
+	void Draw();
+
+	Shader meshShader;
+
 	// Constructor
-	Mesh(const std::vector<Vertex> vertices, const char* texture);
+	Mesh(std::vector<Vertex> vertices, const char* texture, Shader& thisShader);
 
 private:
 	unsigned int mesh_VBO;
@@ -47,13 +55,9 @@ private:
 class Object
 {
 public:
-	void Draw(Shader& shader);
 	Transform transform;
 	bool renderMe = true;
 
-	Object(Mesh* mesh);
-
-private:
-	Mesh* meshP{ nullptr };
+	Object() { };
 
 };

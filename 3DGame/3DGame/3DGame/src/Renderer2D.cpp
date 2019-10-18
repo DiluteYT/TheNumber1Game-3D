@@ -1,33 +1,33 @@
 #include "Renderer2D.h"
 
-Mesh::Mesh(const std::vector<Vertex> vertices, const char* texture)
+Mesh::Mesh(std::vector<Vertex> vertices, const char* texture, Shader& thisShader)
 	: Vertices(vertices),
-	Mesh_Texture(texture)
+	Mesh_Texture(texture),
+	meshShader(thisShader)
 {
 	setupMesh();
 }
 
-Object::Object(Mesh* mesh) 
-{
-	meshP = mesh;
-}
 
-void Object::Draw(Shader& shader)
+void Mesh::Draw()
 {
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, meshP->Mesh_Texture.ID);
-	shader.SetUniformMatrix4fv("model", transform.to_mat4());
-	glBindVertexArray(meshP->mesh_VAO);
-	glDrawArrays(GL_TRIANGLES, 0, meshP->Vertices.size());
+	for (size_t i = 0; i < Objects.size(); i++)
+	{
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, Mesh_Texture.ID);
+		meshShader.SetUniformMatrix4fv("model", Objects[i].transform.to_mat4());
+		glBindVertexArray(mesh_VAO);
+		glDrawArrays(GL_TRIANGLES, 0, Vertices.size());
 
-	glBindVertexArray(0);
-	glBindTexture(GL_TEXTURE_2D, 0);
+		glBindVertexArray(0);
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+
 
 }
 
 void Mesh::setupMesh()
 {
-
 
 	// create buffers/arrays
 	glGenVertexArrays(1, &mesh_VAO);

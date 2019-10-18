@@ -8,8 +8,9 @@ void framebuffer_size_callback(GLFWwindow* window, const int width, const int he
 	glViewport(0, 0, width, height);
 }
 
-WindowCreation::WindowCreation(const glm::vec2 windowsize)
-	: windowSize(windowsize)
+WindowCreation::WindowCreation(const glm::vec2 windowsize, const char* windowname)
+	: windowSize(windowsize),
+	windowName(windowname)
 {
 
 	stbi_set_flip_vertically_on_load(true);
