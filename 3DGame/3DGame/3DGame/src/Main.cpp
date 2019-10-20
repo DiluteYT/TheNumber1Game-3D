@@ -25,23 +25,28 @@ int main()
 	                  /* Meshes below */
 	//-------------------------------------------------------//
 
-	Mesh CubeMesh(Cube(), "res/textures/photos_2015_09_18_fst_305wpk60iz.jpg", false, shader);
+	Mesh CubeMesh(Cube(), "res/textures/th.png",true, shader);
 	Mesh Spike_3DMesh(Spike_3D(), "res/textures/dick.png", false, shader);
 	Mesh SpikeMesh(Spike(), "res/textures/MyStoneTexture.jpg", false, shader);
 	Mesh QuadMesh(Quad(), "res/textures/square.png", false, shader);
 
 	//-------------------------------------------------------//
 
-	int width = 100;
-	int length = 100;
+	int width = 20;
+	int length = 20;
+	int height = 20;
 
-	for (size_t i = 0; i < width; i++)
+	for (size_t x = 0; x < width; x++)
 	{
-		for (size_t j = 0; j < length; j++)
+		for (size_t z = 0; z < length; z++)
 		{
-			Object object;
-			object.transform.position -= glm::vec3(i, 50, j);
-			CubeMesh.Objects.emplace_back(object);
+			for (size_t y = 0; y < height; y++)
+			{
+				Transform transform;
+				transform.position = glm::vec3(x*x,y*y,z*z);
+				CubeMesh.NewObject(transform);
+			}
+
 		}
 	}
 
@@ -50,7 +55,7 @@ int main()
 
 	Scene* boundScene = &scene1;
 
-	float movementSpeed = 5.0f;
+	float movementSpeed = 15.0f;
 
 	double tempx, tempy;
 	glm::vec2 m = glm::vec2(0);

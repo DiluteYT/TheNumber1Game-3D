@@ -1,4 +1,5 @@
 #include "Renderer2D.h"
+#include "Time.h"
 
 Mesh::Mesh(std::vector<Vertex> vertices, const char* texture, bool in, Shader& thisShader)
 	: Vertices(vertices),
@@ -9,32 +10,13 @@ Mesh::Mesh(std::vector<Vertex> vertices, const char* texture, bool in, Shader& t
 	setupMesh();
 }
 
-
-void Mesh::Draw()
-{
-	for (size_t i = 0; i < Objects.size(); i++)
-	{
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, Mesh_Texture.ID);
-		meshShader.SetUniformMatrix4fv("model", Objects[i].transform.to_mat4());
-		glBindVertexArray(mesh_VAO);
-		glDrawArrays(GL_TRIANGLES, 0, Vertices.size());
-
-		glBindVertexArray(0);
-		glBindTexture(GL_TEXTURE_2D, 0);
-	}
-
-
-}
-
 void Mesh::setupMesh()
 {
-
-	unsigned int mesh_VBO;
 
 	// create buffers/arrays
 	glGenVertexArrays(1, &mesh_VAO);
 	glGenBuffers(1, &mesh_VBO);
+	glGenBuffers(1, &instanced_mesh_VBO);
 
 	// load data into vertex buffers
 	glBindBuffer(GL_ARRAY_BUFFER, mesh_VBO);
@@ -53,18 +35,10 @@ void Mesh::setupMesh()
 	glBindVertexArray(0);
 }
 
-void Mesh::instancingSetup()
+void Mesh::instancingUpdate()
 {
-	std::vector<glm::mat4> modelMatrices;
-	for (size_t i = 0; i < Objects.size(); i++)
-	{
-		modelMatrices.emplace_back(Objects[i].transform.to_mat4());
-	}
-
-	unsigned int mesh_VBO;
-	glGenBuffers(1, &mesh_VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, mesh_VBO);
-	glBufferData(GL_ARRAY_BUFFER, Objects.size() * sizeof(glm::mat4), &modelMatrices[0], GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, instanced_mesh_VBO);
+	glBufferData(GL_ARRAY_BUFFER, modelMatrices.size() * sizeof(glm::mat4), &modelMatrices[0], GL_STATIC_DRAW);
 
 	glBindVertexArray(mesh_VAO);
 	glEnableVertexAttribArray(3);
@@ -79,8 +53,8 @@ void Mesh::instancingSetup()
 	glEnableVertexAttribArray(6);
 	glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)(3 * sizeof(glm::vec4)));
 	glVertexAttribDivisor(6, 1);
-
 }
+
 
 glm::mat4 Transform::to_mat4()
 {
@@ -91,4 +65,11 @@ glm::mat4 Transform::to_mat4()
 	m = glm::scale(m, scale);
 
 	return m;
+}
+
+void Mesh::NewObject(Transform& transform)
+{
+	modelMatrices.emplace_back(transform.to_mat4());
+	instancingUpdate();
+
 }

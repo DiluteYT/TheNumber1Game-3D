@@ -7,8 +7,6 @@
 #include <iostream>
 #include <vector>
 
-class Object;
-
 struct Transform
 {
 	glm::vec3 rotation = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -32,32 +30,27 @@ public:
 class Mesh {
 public:
 	std::vector<Vertex> Vertices;
-	std::vector<Object> Objects;
+	std::vector<glm::mat4> modelMatrices;
 
 	Texture Mesh_Texture;
-	unsigned int mesh_VAO;
 
 	bool instanced = false;
+	
+	unsigned int mesh_VAO;
 
-	void Draw();
+	void NewObject(Transform& transform);
 
 	Shader meshShader;
 
-	// Constructor
+	void instancingUpdate();
 	Mesh(std::vector<Vertex> vertices, const char* texture, bool in, Shader& thisShader);
+private:
+
+	unsigned int mesh_VBO;
+	unsigned int instanced_mesh_VBO;
+
+	// Constructor
 
 	void setupMesh();
-	void instancingSetup();
-
-};
-
-
-class Object
-{
-public:
-	Transform transform;
-	bool renderMe = true;
-
-	Object() { };
 
 };
