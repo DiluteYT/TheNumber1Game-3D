@@ -56,20 +56,21 @@ void Mesh::instancingUpdate()
 }
 
 
-glm::mat4 Transform::to_mat4()
+glm::mat4 to_mat4(Transform& transform)
 {
-	glm::mat4 m = glm::translate(glm::mat4(1.0f), position);
-	m = glm::rotate(m, rotation.z, glm::vec3(0, 0, 1));
-	m = glm::rotate(m, rotation.y, glm::vec3(0, 1, 0));
-	m = glm::rotate(m, rotation.x, glm::vec3(1, 0, 0));
-	m = glm::scale(m, scale);
+	glm::mat4 m = glm::translate(glm::mat4(1.0f), transform.position);
+	m = glm::rotate(m, transform.rotation.z, glm::vec3(0, 0, 1));
+	m = glm::rotate(m, transform.rotation.y, glm::vec3(0, 1, 0));
+	m = glm::rotate(m, transform.rotation.x, glm::vec3(1, 0, 0));
+	m = glm::scale(m, transform.scale);
 
 	return m;
 }
 
 void Mesh::NewObject(Transform& transform)
 {
-	modelMatrices.emplace_back(transform.to_mat4());
+	modelMatrices.emplace_back(to_mat4(transform));
 	instancingUpdate();
 
 }
+

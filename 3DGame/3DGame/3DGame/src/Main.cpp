@@ -25,14 +25,14 @@ int main()
 	                  /* Meshes below */
 	//-------------------------------------------------------//
 
-	Mesh Formation_1(Cube(), "res/textures/th.png", true, false, shader);
+	Mesh Formation_1(Spike_3D(), "res/textures/th.png", true, false, shader);
 	Mesh Matrix(Cube(), "res/textures/MyStoneTexture.jpg", true, true, shader);
 
 	//-------------------------------------------------------//
 
-	int width = 20;
-	int length = 20;
-	int height = 20;
+	unsigned int width = 20;
+	unsigned int length = 20;
+	unsigned int height = 20;
 
 	for (size_t x = 0; x < width; x++)
 	{

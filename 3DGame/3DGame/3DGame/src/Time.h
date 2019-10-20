@@ -11,8 +11,8 @@ public:
 
 	void UpdateTime();
 private:
-	float old_time = glfwGetTime();
-	float time = 0;
+	double old_time = glfwGetTime();
+	double time = 0;
 
 };
 

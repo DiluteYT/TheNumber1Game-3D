@@ -3,6 +3,6 @@
 void Time::UpdateTime() {
 
 	time = glfwGetTime();
-	deltaTime = time - old_time;
+	deltaTime = (float)(time - old_time);
 	old_time = time;
 }

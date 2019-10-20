@@ -57,6 +57,7 @@ WindowCreation::WindowCreation(const glm::vec2 windowsize, const char* windownam
 
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
+	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 }

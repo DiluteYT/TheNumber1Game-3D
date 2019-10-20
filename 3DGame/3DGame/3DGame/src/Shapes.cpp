@@ -10,11 +10,11 @@ std::vector<Vertex> Quad() {
 
 	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 3
 
-	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 4
+	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 4
 
 	placeholder.emplace_back(glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 1.0f)); // 5
 
-	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 6
+	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 6
 
 	return placeholder;
 
@@ -30,17 +30,17 @@ std::vector<Vertex> Cube() {
 
 	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 3
 
-	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 4
+	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 4
 
 	placeholder.emplace_back(glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 1.0f)); // 5
 
-	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 6
+	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 6
 
-	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 7 BACK
+	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 7 BACK
 
 	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 8
 
-	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 9
+	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 9
 
 	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 10
 
@@ -48,11 +48,11 @@ std::vector<Vertex> Cube() {
 
 	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 12
 
-	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 13 LEFT
+	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 13 LEFT
 
 	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 1.0f)); // 14
 
-	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 15
+	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 15
 
 	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 1.0f)); // 16
 
@@ -66,23 +66,23 @@ std::vector<Vertex> Cube() {
 
 	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 21
 
-	placeholder.emplace_back(glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 1.0f)); // 22
+	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 22
 
 	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 23
 
-	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 24
+	placeholder.emplace_back(glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 1.0f)); // 24
 
-	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 25 TOP
+	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 25 TOP
 
 	placeholder.emplace_back(glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 1.0f)); // 26
 
-	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 27
+	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 27
 
-	placeholder.emplace_back(glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 1.0f)); // 28
+	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 28
 
 	placeholder.emplace_back(glm::vec3(0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 29
 
-	placeholder.emplace_back(glm::vec3(-0.5f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 30
+	placeholder.emplace_back(glm::vec3(0.5f, 0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 1.0f)); // 30
 
 	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 31 BOTTOM
 
@@ -104,11 +104,11 @@ std::vector<Vertex> Spike() {
 
 	std::vector<Vertex> placeholder;
 
-	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 1
+	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 1
 
 	placeholder.emplace_back(glm::vec3(0.0f, 0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.5f, 1.0f)); // 2
 
-	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 3
+	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 3
 
 	return placeholder;
 
@@ -118,41 +118,42 @@ std::vector<Vertex> Spike_3D() {
 
 	std::vector<Vertex> placeholder;
 
+
 	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 1 BOTTOM
 
 	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 2
 
 	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 3
 
-	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 4
+	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 1.0f)); // 4
 
 	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 5
 
-	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 1.0f)); // 6
+	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 1.0f)); // 6
 
-	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 7 FRONT
+	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 7 FRONT
 
 	placeholder.emplace_back(glm::vec3(0, 0.5f, 0), glm::vec3(1.0f), glm::vec2(0.5f, 1.0f)); // 8
 
-	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 9
+	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 9
 
-	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 10 BACK
-
-	placeholder.emplace_back(glm::vec3(0, 0.5f, 0), glm::vec3(1.0f), glm::vec2(0.5f, 1.0f)); // 11
-
-	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 12
-
-	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 10 LEFT
+	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 10 BACK
 
 	placeholder.emplace_back(glm::vec3(0, 0.5f, 0), glm::vec3(1.0f), glm::vec2(0.5f, 1.0f)); // 11
 
-	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 12
+	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 12
 
-	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 13 RIGHT
+	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 13 LEFT
 
 	placeholder.emplace_back(glm::vec3(0, 0.5f, 0), glm::vec3(1.0f), glm::vec2(0.5f, 1.0f)); // 14
 
-	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 15
+	placeholder.emplace_back(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 15
+
+	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec3(1.0f), glm::vec2(0.0f, 0.0f)); // 16 RIGHT
+
+	placeholder.emplace_back(glm::vec3(0, 0.5f, 0), glm::vec3(1.0f), glm::vec2(0.5f, 1.0f)); // 17
+
+	placeholder.emplace_back(glm::vec3(0.5f, -0.5f, 0.5f), glm::vec3(1.0f), glm::vec2(1.0f, 0.0f)); // 18
 
 	return placeholder;
 
