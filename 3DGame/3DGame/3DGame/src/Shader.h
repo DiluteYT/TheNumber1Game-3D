@@ -25,6 +25,7 @@ public:
 	unsigned int m_RendererID;
 
 	void SetUniformMatrix4fv(const char* name, const glm::mat4& value);
+	void SetUniformInteger(const char* name, const int value);
 
 private:
 	ShaderProgramSource ParseShader(const std::string& filepath);

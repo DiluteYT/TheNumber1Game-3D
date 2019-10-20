@@ -37,17 +37,17 @@ public:
 	Texture Mesh_Texture;
 	unsigned int mesh_VAO;
 
+	bool instanced = false;
+
 	void Draw();
 
 	Shader meshShader;
 
 	// Constructor
-	Mesh(std::vector<Vertex> vertices, const char* texture, Shader& thisShader);
-
-private:
-	unsigned int mesh_VBO;
+	Mesh(std::vector<Vertex> vertices, const char* texture, bool in, Shader& thisShader);
 
 	void setupMesh();
+	void instancingSetup();
 
 };
 

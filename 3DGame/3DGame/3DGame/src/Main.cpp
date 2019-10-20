@@ -25,30 +25,30 @@ int main()
 	                  /* Meshes below */
 	//-------------------------------------------------------//
 
-	Mesh CubeMesh(Cube(), "res/textures/photos_2015_09_18_fst_305wpk60iz.jpg", shader);
-	Mesh Spike_3DMesh(Spike_3D(), "res/textures/dick.png", shader);
-	Mesh SpikeMesh(Spike(), "res/textures/MyStoneTexture.jpg", shader);
-	Mesh QuadMesh(Quad(), "res/textures/square.png", shader);
-
-	std::cout << CubeMesh.Objects.size() << std::endl;
-
-	Object object;
-	CubeMesh.Objects.push_back(object);
-	Object object2;
-	Spike_3DMesh.Objects.emplace_back(object2);
-	Object object3;
-	Spike_3DMesh.Objects.emplace_back(object3);
-	object3.transform.position += glm::vec3(-1, 0, 0);
+	Mesh CubeMesh(Cube(), "res/textures/photos_2015_09_18_fst_305wpk60iz.jpg", false, shader);
+	Mesh Spike_3DMesh(Spike_3D(), "res/textures/dick.png", false, shader);
+	Mesh SpikeMesh(Spike(), "res/textures/MyStoneTexture.jpg", false, shader);
+	Mesh QuadMesh(Quad(), "res/textures/square.png", false, shader);
 
 	//-------------------------------------------------------//
 
+	int width = 100;
+	int length = 100;
+
+	for (size_t i = 0; i < width; i++)
+	{
+		for (size_t j = 0; j < length; j++)
+		{
+			Object object;
+			object.transform.position -= glm::vec3(i, 50, j);
+			CubeMesh.Objects.emplace_back(object);
+		}
+	}
+
 	Scene scene1(wc, shader);
 	scene1.Meshes.emplace_back(CubeMesh);
-	Scene scene2(wc, shader);
-	scene2.Meshes.emplace_back(Spike_3DMesh);
-	scene2.Meshes.emplace_back(Spike_3DMesh);
 
-	Scene* boundScene = &scene2;
+	Scene* boundScene = &scene1;
 
 	float movementSpeed = 5.0f;
 
@@ -81,16 +81,6 @@ int main()
 			boundScene->SceneCamera.transform.position.y += movementSpeed * time.deltaTime;
 		else if (Input::KeyPressed(340, wc.window))
 			boundScene->SceneCamera.transform.position.y -= movementSpeed * time.deltaTime;
-
-
-		if (Input::KeyPressed(49, wc.window))
-		{
-			boundScene = &scene1;
-		}
-		if (Input::KeyPressed(50, wc.window))
-		{
-			boundScene = &scene2;
-		}
 
 		boundScene->Update();
 
