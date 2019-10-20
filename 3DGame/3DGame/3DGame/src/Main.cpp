@@ -25,10 +25,8 @@ int main()
 	                  /* Meshes below */
 	//-------------------------------------------------------//
 
-	Mesh CubeMesh(Cube(), "res/textures/th.png",true, shader);
-	Mesh Spike_3DMesh(Spike_3D(), "res/textures/dick.png", false, shader);
-	Mesh SpikeMesh(Spike(), "res/textures/MyStoneTexture.jpg", false, shader);
-	Mesh QuadMesh(Quad(), "res/textures/square.png", false, shader);
+	Mesh Formation_1(Cube(), "res/textures/th.png", true, false, shader);
+	Mesh Matrix(Cube(), "res/textures/MyStoneTexture.jpg", true, true, shader);
 
 	//-------------------------------------------------------//
 
@@ -43,15 +41,32 @@ int main()
 			for (size_t y = 0; y < height; y++)
 			{
 				Transform transform;
-				transform.position = glm::vec3(x*x,y*y,z*z);
-				CubeMesh.NewObject(transform);
+				transform.position = glm::vec3(sqrt(x + y) * 15, sqrt(y + z) * 15, sqrt(z + x) * 15);
+				Formation_1.NewObject(transform);
+			}
+
+		}
+	}
+
+	for (size_t x = 0; x < width; x++)
+	{
+		for (size_t z = 0; z < length; z++)
+		{
+			for (size_t y = 0; y < height; y++)
+			{
+				Transform transform;
+				transform.position = glm::vec3(x * 5, y * 5, z * 5);
+				Matrix.NewObject(transform);
 			}
 
 		}
 	}
 
 	Scene scene1(wc, shader);
-	scene1.Meshes.emplace_back(CubeMesh);
+	Scene scene2(wc, shader);
+
+	scene1.Meshes.emplace_back(Formation_1);
+	scene2.Meshes.emplace_back(Matrix);
 
 	Scene* boundScene = &scene1;
 
@@ -64,6 +79,15 @@ int main()
 	{
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		if (Input::KeyPressed(49, wc.window))
+		{
+			boundScene = &scene1;
+		}
+		else if (Input::KeyPressed(50, wc.window))
+		{
+			boundScene = &scene2;
+		}
 
 		time.UpdateTime();
 

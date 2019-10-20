@@ -6,10 +6,13 @@ C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame
   Main.cpp
 C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame\src\Time.cpp(5,20): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame\src\Time.h(14,30): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame\src\Main.cpp(39,23): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame\src\Main.cpp(41,24): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame\src\Main.cpp(37,23): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame\src\Main.cpp(39,24): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame\src\Main.cpp(41,25): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame\src\Main.cpp(51,23): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame\src\Main.cpp(53,24): warning C4018:  '<': signed/unsigned mismatch
   Renderer2D.cpp
-C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame\src\Main.cpp(43,25): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\wheni\Desktop\My Stuff\Solutions\TheNumber1Game-3D\3DGame\3DGame\3DGame\src\Main.cpp(55,25): warning C4018:  '<': signed/unsigned mismatch
   Shader.cpp
   Shapes.cpp
   Texture.cpp

@@ -1,9 +1,9 @@
 #include "Renderer2D.h"
 #include "Time.h"
 
-Mesh::Mesh(std::vector<Vertex> vertices, const char* texture, bool in, Shader& thisShader)
+Mesh::Mesh(std::vector<Vertex> vertices, const char* texture, bool in, bool nn, Shader& thisShader)
 	: Vertices(vertices),
-	Mesh_Texture(texture),
+	Mesh_Texture(texture, nn),
 	meshShader(thisShader),
 	instanced(in)
 {

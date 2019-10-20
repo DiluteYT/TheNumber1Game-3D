@@ -43,7 +43,7 @@ public:
 	Shader meshShader;
 
 	void instancingUpdate();
-	Mesh(std::vector<Vertex> vertices, const char* texture, bool in, Shader& thisShader);
+	Mesh(std::vector<Vertex> vertices, const char* texture, bool in, bool nn, Shader& thisShader);
 private:
 
 	unsigned int mesh_VBO;
