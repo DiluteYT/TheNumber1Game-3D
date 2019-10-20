@@ -1,4 +1,10 @@
+#include "Shader.h"
+#include "InternalData.h"
 #include "Camera.h"
+#include "Input.h"
+#include "Scene.h"
+#include "Time.h"
+#include "WindowCreation.h"
 
 #include <iostream>
 
@@ -29,4 +35,40 @@ void Camera::CalculateMatrices(Shader& shader) {
 
 	view = glm::inverse(transform);
 	shader.SetUniformMatrix4fv("view", view);
+}
+
+CameraMovement::CameraMovement(InternalData* in_data, float in_movementSpeed)
+	:	movementSpeed(in_movementSpeed), data(in_data)
+{
+
+}
+
+void CameraMovement::StartOfFrame()
+{
+
+	glfwGetCursorPos(data->wc->window, &tempX, &tempY);
+}
+
+void CameraMovement::EndOfFrame()
+{
+	data->boundScene->SceneCamera.transform.rotation.x += m.x;
+	data->boundScene->SceneCamera.transform.rotation.y += m.y;
+
+
+	if (Input::KeyPressed(83, data->wc->window))
+		data->boundScene->SceneCamera.transform.position -= (data->boundScene->SceneCamera.forward * movementSpeed) * data->time->deltaTime;
+	else if (Input::KeyPressed(87, data->wc->window))
+		data->boundScene->SceneCamera.transform.position += (data->boundScene->SceneCamera.forward * movementSpeed) * data->time->deltaTime;
+
+	if (Input::KeyPressed(65, data->wc->window))
+		data->boundScene->SceneCamera.transform.position -= (data->boundScene->SceneCamera.right * movementSpeed) * data->time->deltaTime;
+	else if (Input::KeyPressed(68, data->wc->window))
+		data->boundScene->SceneCamera.transform.position += (data->boundScene->SceneCamera.right * movementSpeed) * data->time->deltaTime;
+
+	if (Input::KeyPressed(32, data->wc->window))
+		data->boundScene->SceneCamera.transform.position.y += movementSpeed * data->time->deltaTime;
+	else if (Input::KeyPressed(340, data->wc->window))
+		data->boundScene->SceneCamera.transform.position.y -= movementSpeed * data->time->deltaTime;
+
+	m = Input::UpdateMouse(glm::vec2(tempX, tempY), data->wc->window);
 }

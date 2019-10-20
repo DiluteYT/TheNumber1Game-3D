@@ -2,7 +2,10 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 #include "glm/glm.hpp"
-#include "Shader.h"
+
+class Shader;
+class WindowCreation;
+class InternalData;
 
 struct ctransform {
 	glm::vec3 position = glm::vec3(0, 0, 5);
@@ -33,4 +36,20 @@ public:
 	glm::mat4 transform_to_mat4();
 	void CalculateMatrices(Shader& shader);
 
+};
+
+class CameraMovement
+{
+	InternalData* data;
+
+	float movementSpeed = 15.0f;
+
+	double tempX = 0; double tempY = 0;
+	glm::vec2 m = glm::vec2(0);
+
+public:
+
+	CameraMovement(InternalData* in_data, float in_movementSpeed);
+	void StartOfFrame();
+	void EndOfFrame();
 };

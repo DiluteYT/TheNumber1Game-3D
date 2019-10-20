@@ -2,7 +2,9 @@
 
 #include "Renderer2D.h"
 #include "Camera.h"
-#include "WindowCreation.h" 
+
+class WindowCreation;
+class CameraMovement;
 
 class Scene
 {
@@ -11,7 +13,7 @@ public:
 
 	Camera SceneCamera;
 
-	Scene(WindowCreation& WC, Shader& shader);
+	Scene(WindowCreation* WC, Shader* shader);
 
 	void Update();
 

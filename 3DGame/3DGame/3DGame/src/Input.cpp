@@ -13,7 +13,6 @@ glm::vec2 Input::UpdateMouse(glm::vec2 oldpos, GLFWwindow* window)
 	double newx, newy;
 
 	glfwGetCursorPos(window, &newx, &newy);
-
 	float xoffset = (float)newx - oldpos.x;
 	float yoffset = oldpos.y - (float)newy; // reversed since y-coordinates go from bottom to top
 
