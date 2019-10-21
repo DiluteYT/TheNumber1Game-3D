@@ -2,7 +2,7 @@
 #include "WindowCreation.h"
 
 Scene::Scene(WindowCreation* WC, Shader* shader)
-	:	SceneCamera(glm::perspective(glm::radians(90.0f), WC->windowSize.x / WC->windowSize.y, 0.1f, 100.0f), *shader)
+	:	SceneCamera(glm::perspective(glm::radians(90.0f), WC->windowSize.x / WC->windowSize.y, 0.1f, 1000.0f), *shader)
 {
 }
 

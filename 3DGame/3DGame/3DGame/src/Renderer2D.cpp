@@ -67,10 +67,7 @@ glm::mat4 to_mat4(Transform& transform)
 	return m;
 }
 
-void Mesh::NewObject(Transform& transform)
+void Mesh::InjectObject(Transform& transform)
 {
 	modelMatrices.emplace_back(to_mat4(transform));
-	instancingUpdate();
-
 }
-

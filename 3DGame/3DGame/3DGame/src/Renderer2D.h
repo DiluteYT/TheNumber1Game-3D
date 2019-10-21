@@ -37,7 +37,7 @@ public:
 	
 	unsigned int mesh_VAO;
 
-	void NewObject(Transform& transform);
+	void InjectObject(Transform& transform);
 
 	Shader meshShader;
 

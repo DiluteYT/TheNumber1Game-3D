@@ -24,30 +24,44 @@ int main()
 	                  /* Meshes below */
 	//-------------------------------------------------------//
 
-	Mesh CubeMesh(Cube(), "res/textures/th.png", false, false, *INTERNAL_DATA.mainShader);
+	Mesh CubeMesh1(Cube(), "res/textures/th.png", true, false, *INTERNAL_DATA.mainShader);
+	Mesh CubeMesh2(Spike_3D(), "res/textures/MyStoneTexture.jpg", true, true, *INTERNAL_DATA.mainShader);
 
 	//-------------------------------------------------------//
 
-	unsigned int width = 100;
-	unsigned int length = 100;
+	unsigned int width = 32;
+	unsigned int length = 32;
+
+	Transform transform;
+	for (size_t x = 0; x < width; x++)
+	{
+		for (size_t z = 0; z < length; z++)
+		{
+				transform.position = glm::vec3(x * 5, -20, z * 5);
+				CubeMesh1.InjectObject(transform);
+
+		}
+	}
 
 	for (size_t x = 0; x < width; x++)
 	{
 		for (size_t z = 0; z < length; z++)
 		{
-			Transform transform;
-			transform.position = glm::vec3(x, -20, z);
-			CubeMesh.NewObject(transform);
+			transform.position = glm::vec3(x * 3, -19, z * 3);
+			CubeMesh2.InjectObject(transform);
 
 		}
 	}
 
-	scene1.Meshes.emplace_back(CubeMesh);
+	scene1.Meshes.emplace_back(CubeMesh1);
+	scene1.Meshes.emplace_back(CubeMesh2);
 
-	float movementSpeed = 15.0f;
+	float movementSpeed = 50.0f;
 
 	CameraMovement cameramovement(&INTERNAL_DATA, movementSpeed);
 
+	CubeMesh1.instancingUpdate();
+	CubeMesh2.instancingUpdate();
 	while (!glfwWindowShouldClose(wc.window))
 	{
 
