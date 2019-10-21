@@ -406,6 +406,8 @@
     <ClInclude Include="src\vendor\glm\vec3.hpp" />
     <ClInclude Include="src\vendor\glm\vec4.hpp" />
     <ClInclude Include="src\vendor\glm\vector_relational.hpp" />
+    <ClInclude Include="src\vendor\pn\Perlin.h" />
+    <ClInclude Include="src\vendor\pn\PerlinNoise.hpp" />
     <ClInclude Include="src\vendor\stb\stb_image.h" />
     <ClInclude Include="src\WindowCreation.h" />
   </ItemGroup>
@@ -421,6 +423,7 @@
     <ClCompile Include="src\Shapes.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\vendor\glm\detail\glm.cpp" />
+    <ClCompile Include="src\vendor\pn\Perlin.cpp" />
     <ClCompile Include="src\WindowCreation.cpp" />
   </ItemGroup>
   <ItemGroup>

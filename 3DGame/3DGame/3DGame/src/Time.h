@@ -25,11 +25,13 @@ public:
 
 	~Timer()
 	{
-		Stop();
+		if (!timerStopped)
+			Stop();
 	}
 
 	void Stop()
 	{
+		timerStopped = true;
 		auto endTimepoint = std::chrono::high_resolution_clock::now();
 
 		auto start = std::chrono::time_point_cast<std::chrono::microseconds>(m_StartTimepoint).time_since_epoch().count();
@@ -41,5 +43,7 @@ public:
 		std::cout << ms << std::endl;
 	}
 private:
+
+	bool timerStopped = false;
 	std::chrono::time_point<std::chrono::high_resolution_clock> m_StartTimepoint;
 };

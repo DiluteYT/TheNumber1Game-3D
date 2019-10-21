@@ -8,7 +8,7 @@ class WindowCreation;
 class InternalData;
 
 struct ctransform {
-	glm::vec3 position = glm::vec3(0, 0, 5);
+	glm::vec3 position = glm::vec3(0, 0, 0);
 	glm::vec3 rotation = glm::vec3(0, 0, 0);
 };
 

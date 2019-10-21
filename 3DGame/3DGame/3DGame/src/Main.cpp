@@ -4,12 +4,13 @@
 #include "WindowCreation.h"
 #include "Time.h"
 #include "Shapes.h"
+#include "vendor/pn/Perlin.h"
 
 int main()
 {
 
 	// WindowCreation should be first 99% of the time.
-	WindowCreation wc(glm::vec2(1080, 1080), "3D Game");
+	WindowCreation wc(glm::vec2(1920, 1080), "3D Game");
 
 	Shader shader("res/shaders/shader.shader");
 	shader.Bind();
@@ -24,31 +25,33 @@ int main()
 	                  /* Meshes below */
 	//-------------------------------------------------------//
 
-	Mesh CubeMesh1(Cube(), "res/textures/th.png", true, false, *INTERNAL_DATA.mainShader);
-	Mesh CubeMesh2(Spike_3D(), "res/textures/MyStoneTexture.jpg", true, true, *INTERNAL_DATA.mainShader);
+	Mesh CubeMesh1(Cube(), "res/textures/grass.png", true, true, *INTERNAL_DATA.mainShader);
+	Mesh CubeMesh2(Cube(), "res/textures/Stone.png", true, true, *INTERNAL_DATA.mainShader);
 
 	//-------------------------------------------------------//
 
 	unsigned int width = 32;
 	unsigned int length = 32;
+	unsigned int height = 16;
+
+	PerlinMath pm;
+
 
 	Transform transform;
 	for (size_t x = 0; x < width; x++)
 	{
 		for (size_t z = 0; z < length; z++)
 		{
-				transform.position = glm::vec3(x * 5, -20, z * 5);
-				CubeMesh1.InjectObject(transform);
 
-		}
-	}
+			float noiseCache = pm.noise(x, z);
+			transform.position = glm::vec3(x, noiseCache, z);
+			CubeMesh1.InjectObject(transform);
 
-	for (size_t x = 0; x < width; x++)
-	{
-		for (size_t z = 0; z < length; z++)
-		{
-			transform.position = glm::vec3(x * 3, -19, z * 3);
-			CubeMesh2.InjectObject(transform);
+			for (size_t h = 0; h < noiseCache + height; h++)
+			{
+				transform.position = glm::vec3(x, noiseCache - h, z);
+				CubeMesh2.InjectObject(transform);
+			}
 
 		}
 	}
@@ -56,7 +59,7 @@ int main()
 	scene1.Meshes.emplace_back(CubeMesh1);
 	scene1.Meshes.emplace_back(CubeMesh2);
 
-	float movementSpeed = 50.0f;
+	float movementSpeed = 10.0f;
 
 	CameraMovement cameramovement(&INTERNAL_DATA, movementSpeed);
 
