@@ -48,8 +48,5 @@ private:
 	unsigned int mesh_VBO;
 	unsigned int instanced_mesh_VBO;
 
-	// Constructor
-
-	void setupMesh();
 
 };

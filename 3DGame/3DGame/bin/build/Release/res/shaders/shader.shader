@@ -34,9 +34,9 @@ out vec4 FragColor;
 in vec2 TexCoord;
 in vec3 f_color;
 
-uniform sampler2D texture1511;
+uniform sampler2D GL_Texture;
 
 void main()
 {
-	FragColor = texture(texture1511, TexCoord) * vec4(f_color, 1.0f);
+	FragColor = texture(GL_Texture, TexCoord) * vec4(f_color, 1.0f);
 }

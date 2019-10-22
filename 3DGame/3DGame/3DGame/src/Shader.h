@@ -2,14 +2,9 @@
 
 #include <glew.h>
 #include <string>
+#include <tuple>
+
 #include "glm/glm.hpp"
-
-struct ShaderProgramSource
-{
-	std::string VertexSource;
-	std::string FragmentSource;
-};
-
 
 class Shader
 {
@@ -28,7 +23,7 @@ public:
 	void SetUniformInteger(const char* name, const int value);
 
 private:
-	ShaderProgramSource ParseShader(const std::string& filepath);
+	std::tuple<std::string, std::string> ParseShader(const std::string& filepath);
 	unsigned int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
 	unsigned int CompileShader(unsigned int type, const std::string& source);
 };

@@ -25,14 +25,14 @@ int main()
 	                  /* Meshes below */
 	//-------------------------------------------------------//
 
-	Mesh CubeMesh1(Cube(), "res/textures/grass.png", true, true, *INTERNAL_DATA.mainShader);
-	Mesh CubeMesh2(Cube(), "res/textures/Stone.png", true, true, *INTERNAL_DATA.mainShader);
+	Mesh Grass(Grass(), "res/textures/atlas1.png", true, true, *INTERNAL_DATA.mainShader);
+	Mesh Stone(Cube(), "res/textures/Stone.png", true, true, *INTERNAL_DATA.mainShader);
 
 	//-------------------------------------------------------//
 
-	unsigned int width = 32;
-	unsigned int length = 32;
-	unsigned int height = 16;
+	unsigned int width = 64;
+	unsigned int length = 64;
+	unsigned int height = 32;
 
 	PerlinMath pm;
 
@@ -45,26 +45,26 @@ int main()
 
 			float noiseCache = pm.noise(x, z);
 			transform.position = glm::vec3(x, noiseCache, z);
-			CubeMesh1.InjectObject(transform);
+			Grass.InjectObject(transform);
 
 			for (size_t h = 0; h < noiseCache + height; h++)
 			{
 				transform.position = glm::vec3(x, noiseCache - h, z);
-				CubeMesh2.InjectObject(transform);
+				Stone.InjectObject(transform);
 			}
 
 		}
 	}
 
-	scene1.Meshes.emplace_back(CubeMesh1);
-	scene1.Meshes.emplace_back(CubeMesh2);
+	scene1.Meshes.emplace_back(Grass);
+	scene1.Meshes.emplace_back(Stone);
 
 	float movementSpeed = 10.0f;
 
 	CameraMovement cameramovement(&INTERNAL_DATA, movementSpeed);
 
-	CubeMesh1.instancingUpdate();
-	CubeMesh2.instancingUpdate();
+	Grass.instancingUpdate();
+	Stone.instancingUpdate();
 	while (!glfwWindowShouldClose(wc.window))
 	{
 
